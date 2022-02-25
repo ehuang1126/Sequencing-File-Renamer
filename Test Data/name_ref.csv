@@ -1,5 +1,7 @@
-﻿input,output
-1,namechanged1.ab1
-2,namechanged2.ab1
-3,namechanged3.ab1
-4,namechanged4.ab2
+index,gene,clone,oligo
+1,arpc3-mSI_ox_RNF_F1,fish1,1
+2,arpc3-mSI_ox_RNF_F1,fish2,2
+3,arpc3-mSI_ox_RNF_F1,fish3,3
+4,arpc3-mSI_ox_RNF_F1,fish4,1
+5,arpc3-mSI_ox_RNF_F1,fish5,2
+6,arpc3-mSI_ox_RNF_F1,fish6,4
