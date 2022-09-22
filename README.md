@@ -7,4 +7,4 @@ This renamer program renames all files in a directory of sequencing data based o
 
 [Renamer Setup Guide](https://docs.google.com/document/d/1nstSoI9pFRei7pu8AAqdtOgbb1B34kcdZqy_U5lsKfM/edit?usp=sharing)
 
-The Generator is a work-in-progress program to help with organization for sequencing and is meant to work with the renamer. 
+The Generator is a program meant to help with organization for sequencing and is meant to work with the renamer. It organizes samples based on genes, amplicons, sequencing oligos, and clones. This data is saved in 2 .csv files: 1 containing all of the data for each sample, and another containing the samples' compiled names to be used in the Renamer program. 
