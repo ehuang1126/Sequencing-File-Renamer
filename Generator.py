@@ -14,7 +14,7 @@ def generate_csv(base, genes, amp, oligos, clones, output_path, append=False):
             3D list. len(oligos)==len(amp)==len(genes). 
             len(oligos[i]) == len(amp[i]). 
             oligos[i][j] == list of oligos for amp[i][j] for gene[i]. 
-        clones: int for how many clones for each set of oligos. aka how many templates used. 
+        clones: list for which clones for each set of oligos. aka how many templates used. 
         output_path: path for csv file to write to.
         append: will append data to an existing csv. default false. 
         
@@ -33,8 +33,8 @@ def generate_csv(base, genes, amp, oligos, clones, output_path, append=False):
     for i in range(len(genes)): 
         for j in range(len(amp[i])): 
             for k in range(len(oligos[i][j])):
-                for l in range(clones):
-                    matrix.append([base, index, genes[i], amp[i][j], oligos[i][j][k], l+1])
+                for l in clones:
+                    matrix.append([base, index, genes[i], amp[i][j], oligos[i][j][k], l])
                     index += 1
                 
     edit = "a" if append else "w"
