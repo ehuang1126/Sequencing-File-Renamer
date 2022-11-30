@@ -20,7 +20,7 @@ def read_csv(csv_path):
     
     return matrix
 
-def renamer(ref_csv, input_path, output_path, suffix, prepend=False, make_folders=False, clone_id="clone"): 
+def renamer(ref_csv, input_path, output_path, suffix, prepend=False, make_folders=False, clone_id="clone", reference_map=''): 
     
     # support both .ab1 and .seq files
     both=False
@@ -76,12 +76,12 @@ def renamer(ref_csv, input_path, output_path, suffix, prepend=False, make_folder
     # separate files into folders based on clone names
     if make_folders: 
         if both: 
-            clone_move(clone_id, output_path, '.ab1')
-            clone_move(clone_id, output_path, '.seq')
+            clone_move(clone_id, output_path, '.ab1', reference_map)
+            clone_move(clone_id, output_path, '.seq', reference_map)
         else: 
-            clone_move(clone_id, output_path, suffix)
+            clone_move(clone_id, output_path, suffix, reference_map)
     
-def clone_move(clone_id, merged_files, suffix): 
+def clone_move(clone_id, merged_files, suffix, reference_map): 
     """
     helper function to create folders and organize files
     """
@@ -99,6 +99,8 @@ def clone_move(clone_id, merged_files, suffix):
         path_individual = merged_files+'/'+clone_id+'_'+str(ind)
         if not os.path.exists(path_individual): 
             os.mkdir(path_individual)
+        if len(reference_map) > 0:  
+            shutil.copy2(reference_map, path_individual)
         for file in os.listdir(merged_files):
             for temp in file_identifier:
                 if temp in file:
